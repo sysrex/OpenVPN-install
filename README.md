@@ -46,6 +46,8 @@ The only drawback is that you need to use a recent version of OpenVPN, because s
 
 On the client-side, it's less problematic, but if you want to use an OpenVPN server installed with this script with an old client (\<2.3.3), it won't work. However I don't see why you would use an outdated client.
 
+Also because I wanted to change the 10 network into something that I don't currently have.
+
 **TL;DR**, this script is relatively secure, and you can just press enter in the setup. 
 
 ## Compatibility

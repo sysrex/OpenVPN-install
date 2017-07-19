@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Secure OpenVPN server installer for Debian, Ubuntu, CentOS and Arch Linux
+# Secure OpenVPN server installer for Debian, Ubuntu, CentOS 
 # https://github.com/sysrex/OpenVPN-install
 
 
@@ -46,12 +46,8 @@ elif [[ -e /etc/centos-release || -e /etc/redhat-release ]]; then
 	SYSCTL='/etc/sysctl.conf'
 	# Needed for CentOS 7
 	chmod +x /etc/rc.d/rc.local
-elif [[ -e /etc/arch-release ]]; then
-	OS=arch
-	RCLOCAL='/etc/rc.local'
-	SYSCTL='/etc/sysctl.d/openvpn.conf'
 else
-	echo "Looks like you aren't running this installer on a Debian, Ubuntu, CentOS or ArchLinux system"
+	echo "Looks like you aren't running this installer on a Debian, Ubuntu, or CentOS system"
 	exit 4
 fi
 
@@ -168,8 +164,6 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 				fi
 				if [[ "$OS" = 'debian' ]]; then
 					apt-get autoremove --purge -y openvpn
-				elif [[ "$OS" = 'arch' ]]; then
-					pacman -R openvpn --noconfirm
 				else
 					yum remove openvpn -y
 				fi
